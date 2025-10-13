@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor con Botón Play Mejorado</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: white;
+        }
+        
+        .demo-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .demo-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .improvements-list {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .improvements-list h3 {
+            color: #00ff99;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .improvement-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .improvement-item::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .status-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .status-panel h4 {
+            color: #00ff99;
+            margin-top: 0;
+        }
+        
+        .test-button {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .player-showcase {
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">🎵 Botón Play Mejorado</h1>
+        
+        <div class="improvements-list">
+            <h3>🚀 Mejoras Implementadas</h3>
+            
+            <div class="improvement-item">
+                <strong>Reintentos Automáticos:</strong> Si falla, reintenta hasta 5 veces con delay progresivo
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Verificación de Reproducción:</strong> Confirma que el audio realmente está reproduciéndose
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Recuperación Automática:</strong> Se recupera automáticamente de interrupciones temporales
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Configuración Robusta:</strong> Audio configurado específicamente para streams de radio
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Monitoreo de Salud:</strong> Detecta si el stream se congela y lo reinicia
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Manejo de Errores:</strong> Gestión inteligente de errores de red y timeouts
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Cache Busting:</strong> Evita problemas de caché con URLs dinámicas
+            </div>
+            
+            <div class="improvement-item">
+                <strong>Estados Visuales:</strong> Indicadores claros de carga, error y reproducción
+            </div>
+        </div>
+        
+        <div class="status-panel">
+            <h4>📊 Estado del Sistema</h4>
+            <div id="system-status">Inicializando reproductor mejorado...</div>
+        </div>
+        
+        <button class="test-button" onclick="testMultipleClicks()">
+            🎯 Probar Múltiples Clics Rápidos
+        </button>
+        
+        <button class="test-button" onclick="simulateNetworkIssue()">
+            📶 Simular Problema de Red
+        </button>
+    </div>
+
+    <!-- REPRODUCTOR -->
+    <div class="player-showcase">
+        <div class="player">
+            <div class="album-cover-container">
+                <img id="album-cover" class="album-cover" src="portada.jpg" alt="Imagen del artista o logo de la radio"> 
+                <div class="album-cover-overlay"></div>
+            </div>
+
+            <div class="audio-info">
+                <div class="metadata-row-1">
+                    <div id="song-title">Radio En Vivo</div>
+                </div>
+                <div class="metadata-row-2">
+                    <div id="artist-name">Presiona play para escuchar</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini reproductor con controles mejorados -->
+        <div class="mini-player">
+            <div class="mini-cover-container">
+                <img id="mini-album-cover" class="mini-album-cover" src="portada.jpg" alt="Album cover">
+            </div>
+            
+            <div class="mini-song-info">
+                <div id="mini-song-title" class="mini-song-title">Radio En Vivo</div>
+                <div id="mini-artist-name" class="mini-artist-name">Presiona play</div>
+            </div>
+            
+            <div class="mini-controls">
+                <button id="mini-play-button" class="mini-play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25" height="25">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </button>
+                
+                <div class="mini-volume-control">
+                    <input type="range" id="mini-volume-slider" class="mini-volume-slider" min="0" max="100" value="70">
+                </div>
+            </div>
+            
+            <!-- Visualizador mejorado -->
+            <div class="mini-equalizer-container">
+                <div class="mini-equalizer-bar"></div>
+                <div class="mini-equalizer-bar"></div>
+                <div class="mini-equalizer-bar"></div>
+                <div class="mini-equalizer-bar"></div>
+                <div class="mini-equalizer-bar"></div>
+            </div>
+            
+            <!-- Indicador en vivo -->
+            <div class="live-indicator" style="display: none;">
+                <span class="live-dot"></span>
+                <span class="live-text">EN VIVO</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elemento de audio mejorado -->
+    <audio id="audio-player" preload="none"></audio>
+
+    <!-- JavaScript mejorado -->
+    <script src="main-improved.js"></script>
+    
+    <script>
+        // Funciones de testing adicionales
+        function updateSystemStatus(message) {
+            const statusElement = document.getElementById('system-status');
+            if (statusElement) {
+                const timestamp = new Date().toLocaleTimeString();
+                statusElement.innerHTML = `[${timestamp}] ${message}`;
+            }
+        }
+
+        function testMultipleClicks() {
+            updateSystemStatus('🎯 Iniciando test de múltiples clics...');
+            
+            // Simular múltiples clics rápidos
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const button = document.getElementById('mini-play-button');
+                    if (button) {
+                        button.click();
+                        updateSystemStatus(`🔄 Clic ${i + 1}/5 - El sistema debe ignorar clics duplicados`);
+                    }
+                }, i * 100); // Clics cada 100ms
+            }
+            
+            setTimeout(() => {
+                updateSystemStatus('✅ Test completado - Solo debe haberse ejecutado una acción');
+            }, 1000);
+        }
+
+        function simulateNetworkIssue() {
+            updateSystemStatus('📶 Simulando problema de red...');
+            
+            // Simular desconexión temporal
+            const originalOnLine = navigator.onLine;
+            Object.defineProperty(navigator, 'onLine', {
+                writable: true,
+                value: false
+            });
+            
+            updateSystemStatus('❌ Conexión "perdida" - El reproductor debe manejarlo');
+            
+            // Restaurar conexión después de 3 segundos
+            setTimeout(() => {
+                Object.defineProperty(navigator, 'onLine', {
+                    writable: true,
+                    value: true
+                });
+                updateSystemStatus('✅ Conexión "restaurada" - El reproductor debe recuperarse');
+            }, 3000);
+        }
+
+        // Monitor de estado en tiempo real
+        setInterval(() => {
+            const audio = document.getElementById('audio-player');
+            if (audio) {
+                const status = `Estado: ${audio.paused ? 'Pausado' : 'Reproduciendo'} | ` +
+                              `Ready: ${audio.readyState}/4 | ` +
+                              `Network: ${navigator.onLine ? 'Online' : 'Offline'}`;
+                updateSystemStatus(status);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

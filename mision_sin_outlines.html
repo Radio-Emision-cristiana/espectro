@@ -1,0 +1,436 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reproductor zeno Fm - Sin Outlines</title> 
+<link rel="stylesheet" href="styles.css">
+
+<!-- REGLAS CSS ADICIONALES PARA ELIMINAR COMPLETAMENTE TODOS LOS OUTLINES -->
+<style>
+/* ELIMINACIÓN ABSOLUTA Y FORZADA DE TODOS LOS OUTLINES */
+* {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Reglas específicas para todos los estados posibles */
+*:focus,
+*:active,
+*:hover,
+*:visited,
+*:target,
+*:focus-visible,
+*:focus-within,
+*::before,
+*::after,
+*::selection {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Reglas específicas para elementos interactivos */
+button,
+input,
+a,
+select,
+textarea,
+div,
+span,
+img,
+svg,
+canvas,
+audio,
+video {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    border: none !important;
+}
+
+/* Estados específicos para elementos interactivos */
+button:focus,
+button:active,
+button:hover,
+input:focus,
+input:active,
+input:hover,
+a:focus,
+a:active,
+a:hover,
+select:focus,
+select:active,
+select:hover,
+textarea:focus,
+textarea:active,
+textarea:hover,
+div:focus,
+div:active,
+div:hover,
+span:focus,
+span:active,
+span:hover,
+img:focus,
+img:active,
+img:hover,
+svg:focus,
+svg:active,
+svg:hover,
+canvas:focus,
+canvas:active,
+canvas:hover,
+audio:focus,
+audio:active,
+audio:hover,
+video:focus,
+video:active,
+video:hover {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    border: none !important;
+}
+
+/* Reglas específicas para los elementos del reproductor */
+.player,
+.player *,
+.album-cover-container,
+.album-cover-container *,
+.audio-info,
+.audio-info *,
+.social-buttons,
+.social-buttons *,
+.social-btn,
+.social-btn *,
+.controls,
+.controls *,
+.play-pause-btn,
+.play-pause-btn *,
+.volume-controls,
+.volume-controls *,
+.progress-bar,
+.progress-bar *,
+.visualizer,
+.visualizer *,
+.theme-section,
+.theme-section *,
+.theme-toggle,
+.theme-toggle *,
+.footer,
+.footer *,
+.share-modal,
+.share-modal *,
+.whatsapp-float,
+.whatsapp-float * {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    border: none !important;
+}
+
+/* Estados para elementos del reproductor */
+.player:focus,
+.player:active,
+.player:hover,
+.album-cover-container:focus,
+.album-cover-container:active,
+.album-cover-container:hover,
+.audio-info:focus,
+.audio-info:active,
+.audio-info:hover,
+.social-buttons:focus,
+.social-buttons:active,
+.social-buttons:hover,
+.social-btn:focus,
+.social-btn:active,
+.social-btn:hover,
+.controls:focus,
+.controls:active,
+.controls:hover,
+.play-pause-btn:focus,
+.play-pause-btn:active,
+.play-pause-btn:hover,
+.volume-controls:focus,
+.volume-controls:active,
+.volume-controls:hover,
+.progress-bar:focus,
+.progress-bar:active,
+.progress-bar:hover,
+.visualizer:focus,
+.visualizer:active,
+.visualizer:hover,
+.theme-section:focus,
+.theme-section:active,
+.theme-section:hover,
+.theme-toggle:focus,
+.theme-toggle:active,
+.theme-toggle:hover,
+.footer:focus,
+.footer:active,
+.footer:hover,
+.share-modal:focus,
+.share-modal:active,
+.share-modal:hover,
+.whatsapp-float:focus,
+.whatsapp-float:active,
+.whatsapp-float:hover {
+    outline: none !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    outline-color: transparent !important;
+    outline-offset: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -moz-outline: none !important;
+    -ms-outline: none !important;
+    border: none !important;
+}
+
+/* Regla específica para navegación por teclado */
+[tabindex]:focus,
+[tabindex]:active {
+    outline: none !important;
+    border: none !important;
+}
+
+/* Regla para elementos con atributo de evento */
+[onclick]:focus,
+[onclick]:active,
+[onclick]:hover {
+    outline: none !important;
+    border: none !important;
+}
+
+/* Eliminar efectos de toque en móviles */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* AJUSTE ESPECÍFICO PARA BOTÓN FLOTANTE DE WHATSAPP EN MÓVILES */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 120px !important; /* Más arriba en tablets y móviles grandes */
+        right: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 110px !important; /* Más arriba en móviles pequeños */
+        right: 12px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .whatsapp-float {
+        bottom: 100px !important; /* Ajuste para pantallas muy pequeñas */
+        right: 10px !important;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="player">
+  <div class="album-cover-container">
+    <img id="album-cover" class="album-cover" src="portada.jpg" alt="Imagen del artista o logo de la radio"> 
+    <div class="album-cover-overlay"></div>
+  </div>
+
+  <div class="audio-info">
+    <div class="metadata-row-1">
+      <div id="song-title">Radio En Vivo</div>
+    </div>
+    <div class="metadata-row-2">
+      <div id="artist-name">Música en Directo</div>
+    </div>
+
+    
+    <!-- Botones de redes sociales -->
+    <div class="social-buttons">
+      <a href="#" onclick="openFacebook(); return false;" class="social-btn facebook" title="Compartir en Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      
+      <a href="#" onclick="openInstagram(); return false;" class="social-btn instagram" title="Seguir en Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      
+      <a href="#" onclick="openTwitter(); return false;" class="social-btn twitter" title="Seguir en Twitter">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+      </a>
+      
+      <a href="#" onclick="openGmail(); return false;" class="social-btn gmail" title="Enviar por Gmail">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+      </a>
+      
+      <button class="social-btn share-btn" onclick="shareRadio()" title="Compartir Radio">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+        </svg>
+      </button>
+
+      <a href="#" onclick="openWhatsApp(); return false;" class="social-btn whatsapp" title="Compartir por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Barra de progreso de la canción -->
+    <div class="progress-bar">
+      <div class="progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <!-- Botón de play/pause principal -->
+    <button class="play-pause-btn" id="play-pause-btn" onclick="togglePlay()">
+      <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+
+    <!-- Controles de volumen -->
+    <div class="volume-controls">
+      <button class="volume-btn" onclick="toggleMute()">
+        <svg class="volume-on-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+        <svg class="volume-off-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+          <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+      </button>
+      <input type="range" class="volume-slider" min="0" max="100" value="50" oninput="setVolume(this.value)">
+    </div>
+  </div>
+
+  <!-- Visualizador -->
+  <div class="visualizer">
+    <canvas id="canvas" width="300" height="60"></canvas>
+  </div>
+
+  <!-- Sección para el botón de cambio de tema -->
+  <div class="theme-section">
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- Modal de compartir -->
+<div id="share-modal" class="share-modal">
+  <div class="share-modal-content">
+    <span class="share-close" onclick="closeShareModal()">&times;</span>
+    <h2>Compartir Radio</h2>
+    <p>¡Comparte nuestra radio con tus amigos!</p>
+    <div class="share-options">
+      <button onclick="shareViaWebAPI()" class="share-option">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+        </svg>
+        Compartir
+      </button>
+      <button onclick="copyToClipboard()" class="share-option">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+        </svg>
+        Copiar Enlace
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Botón flotante de WhatsApp -->
+<div class="whatsapp-float">
+  <a href="#" onclick="openWhatsApp(); return false;" title="Contáctanos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Footer con información adicional -->
+<div class="footer">
+  <p>📻 Emisora Online | 🎵 Música 24/7</p>
+  <p>Powered by Zeno.FM</p>
+</div>
+
+<!-- Audio element (hidden) -->
+<audio id="radio-audio" preload="none">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+<!-- Script corregido para reproducción robusta con botón play funcional -->
+<script src="main-play-fixed.js"></script>
+
+</body>
+</html>
